@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+</head>
+<body>
+    <h1>Editar alumno</h1>
+
+    <form th:action="@{/update}" th:object="${estudiante}" method="post">
+        <div class="form-group">
+        <label >Codigo del estudiante:</label>
+		<input th:field="${estudiante.codigo}" th:value="${estudiante.codigo}"class="form-control form-control-lg">               
+        
+        <label>Nombre:</label><br>
+			<input type="text" th:field="${estudiante.nombre}" th:value="${estudiante.nombre}"class="form-control form-control-lg"><br>
+			<span th:errors="${estudiante.nombre}"></span><br>
+			
+			<label>Apellido:</label><br>
+			<input type="text" th:field="${estudiante.apellido}" th:value="${estudiante.apellido}"class="form-control form-control-lg"><br>
+			<span th:errors="${estudiante.apellido}"></span><br>
+			
+			<label>Carne:</label><br>
+			<input type="number" th:field="${estudiante.carne}" th:value="${estudiante.carne}"class="form-control form-control-lg"><br>
+			<span th:errors="${estudiante.carne}"></span><br>
+			
+			<label>Carrera:</label><br>
+			<input type="text" th:field="${estudiante.carrera}" th:value="${estudiante.carrera}"class="form-control form-control-lg"><br>
+			<span th:errors="${estudiante.carrera}"></span><br><br>
+		<input type="submit" value="Update"class="btn btn-primary mb-2">
+    </form>
+    <br>
+	<button class="btn btn-dark"><a href="/listado">Ver todos los estudiantes</a></button>
+	<br>
+	<button class="btn btn-dark"><a href="/index">Ingresar un nuevo estudiante</a></button>
+	
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	
+</body>
+</html>

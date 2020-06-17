@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlms:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Agregar estudiante</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<body>
+	<h1>Ingresa un estudiante</h1>
+	<form th:action="@{/formEstudiante}" th:object="${estudiante}" method="post">
+	<div class="form-group">
+			<label>Nombre:</label><br>
+			<input type="text" th:field="${estudiante.nombre}"class="form-control form-control-lg"placeholder="Ingrese nombre de alumno"><br>
+			<span th:errors="${estudiante.nombre}"style="color:#E81505"></span><br>
+			
+			<label>Apellido:</label><br>
+			<input type="text" th:field="${estudiante.apellido}"class="form-control form-control-lg"placeholder="Ingrese apellido"><br>
+			<span th:errors="${estudiante.apellido}"style="color:#E81505"></span><br>
+			
+			<label>Carne:</label><br>
+			<input type="number" th:field="${estudiante.carne}"class="form-control form-control-lg"placeholder="Ingresa el numero de carnet"><br>
+			<span th:errors="${estudiante.carne}"style="color:#E81505"></span><br>
+			
+			<label>Carrera:</label><br>
+			<input type="text" th:field="${estudiante.carrera}"class="form-control form-control-lg"placeholder="Ingresa carrera"><br>
+			<span th:errors="${estudiante.carrera}"style="color:#E81505"></span><br><br>
+			
+		<input type="submit" value="Agregar Estudiante"class="btn btn-primary mb-2">
+	</form>
+	<br>
+    <form th:action="@{/delete}" method="post">
+    <div class="form-group">
+		<label>Eliminar un estudiante</label><input type="number" name="cod"class="form-control form-control-lg"placeholder="Ingresa nombre"><br>
+    	<input type="submit" value="Borrar"class="btn btn-primary mb-2">
+    	</div>
+	</form>
+    <br>
+    <form th:action="@{/buscar}" th:method="post">
+    <div class="form-group">
+			<label>Codigo estudiante:</label><br>
+			<input type="text" name = "cod"class="form-control form-control-lg"placeholder="Ingresa codigo">
+			<input type="submit" name="action" value="editar"class="btn btn-primary mb-2">
+	</form>
+	<br>
+	<form th:action="@{/filter}" th:method="post">
+	<div class="form-group">
+			<label>Filtrar por nombre</label><br>
+			<input type="text" name="nombre"class="form-control form-control-lg"placeholder="Ingresa nombre">
+			<input type="submit" value="filtrar"class="btn btn-primary mb-2">
+	</form>
+	<br>
+	<button class="btn btn-dark"><a href="/listado">Ver todos los estudiantes</a></button>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>
